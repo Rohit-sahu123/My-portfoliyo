@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#040711" />
+      <stop offset="100%" stop-color="#090f1d" />
+    </linearGradient>
+    
+    <!-- Neon Accent Gradients -->
+    <linearGradient id="cyan-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    
+    <!-- Relational Node Glows -->
+    <radialGradient id="cyan-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#14b8a6" stop-opacity="0" />
+    </radialGradient>
+    
+    <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Base canvas -->
+  <rect width="400" height="220" fill="url(#bg-grad)" />
+
+  <!-- Cyber network background vectors -->
+  <path d="M-50,220 C100,160 200,240 300,180 C350,150 380,180 450,140" fill="none" stroke="#115e59" stroke-opacity="0.15" stroke-width="2" />
+  <path d="M-50,180 C80,130 150,220 280,140 C340,100 370,120 450,80" fill="none" stroke="#1e293b" stroke-opacity="0.2" stroke-width="1.5" />
+
+  <!-- Background Dots Array -->
+  <circle cx="50" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="100" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="150" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="200" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="250" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="300" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="350" cy="30" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="50" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="100" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="150" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="200" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="250" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="300" cy="80" r="1" fill="#334155" opacity="0.3" />
+  <circle cx="350" cy="80" r="1" fill="#334155" opacity="0.3" />
+
+  <!-- SQL DB TABLE 1: Students -->
+  <g transform="translate(24, 28)">
+    <rect width="136" height="112" rx="6" fill="#090d16" fill-opacity="0.85" stroke="#14b8a6" stroke-opacity="0.3" stroke-width="1" />
+    <rect width="136" height="24" rx="6" fill="#0c2d30" fill-opacity="0.9" />
+    <text x="10" y="16" font-family="'Space Grotesk', monospace" font-size="8.5" fill="#14b8a6" font-weight="700">TABLE: student_records</text>
+    
+    <!-- Table Columns -->
+    <text x="10" y="42" font-family="monospace" font-size="8" fill="#38bdf8">PK  id <tspan fill="#64748b">[INT]</tspan></text>
+    <text x="10" y="58" font-family="monospace" font-size="8" fill="#94a3b8">    name <tspan fill="#64748b">[VARCHAR]</tspan></text>
+    <text x="10" y="74" font-family="monospace" font-size="8" fill="#94a3b8">    email <tspan fill="#64748b">[VARCHAR]</tspan></text>
+    <text x="10" y="90" font-family="monospace" font-size="8" fill="#38bdf8">FK  dept_id <tspan fill="#64748b">[INT]</tspan></text>
+    <text x="10" y="106" font-family="monospace" font-size="8" fill="#94a3b8">    cgpa <tspan fill="#64748b">[DECIMAL]</tspan></text>
+    
+    <!-- Visual Key Icon -->
+    <circle cx="120" cy="40" r="3" fill="#38bdf8" />
+    <path d="M 120,40 L 128,40" stroke="#38bdf8" stroke-width="1" />
+  </g>
+
+  <!-- Relational Connection Thread Linking FK to PK -->
+  <path d="M 160,118 C 190,118 190,44 232,44" fill="none" stroke="#14b8a6" stroke-opacity="0.8" stroke-width="1.5" stroke-dasharray="3,3" />
+  <circle cx="160" cy="118" r="4" fill="#14b8a6" filter="url(#glow-filter)" />
+  <circle cx="232" cy="44" r="4" fill="#38bdf8" filter="url(#glow-filter)" />
+
+  <!-- SQL DB TABLE 2: Departments -->
+  <g transform="translate(240, 16)">
+    <rect width="136" height="80" rx="6" fill="#090d16" fill-opacity="0.85" stroke="#14b8a6" stroke-opacity="0.2" stroke-width="1" />
+    <rect width="136" height="24" rx="6" fill="#0d1527" />
+    <text x="10" y="16" font-family="'Space Grotesk', monospace" font-size="8.5" fill="#f3f4f6" font-weight="700">TABLE: departments</text>
+    
+    <!-- Table Columns -->
+    <text x="10" y="42" font-family="monospace" font-size="8" fill="#38bdf8">PK  dept_id <tspan fill="#64748b">[INT]</tspan></text>
+    <text x="10" y="58" font-family="monospace" font-size="8" fill="#94a3b8">    dept_name <tspan fill="#64748b">[VARCHAR]</tspan></text>
+    <text x="10" y="74" font-family="monospace" font-size="8" fill="#94a3b8">    faculty_count <tspan fill="#64748b">[INT]</tspan></text>
+  </g>
+
+  <!-- Performance Live Monitor Card (Bottom Chart) -->
+  <rect x="24" y="152" width="352" height="56" rx="6" fill="#080c15" fill-opacity="0.9" stroke="#ffffff" stroke-opacity="0.05" />
+  
+  <text x="36" y="168" font-family="'Space Grotesk', monospace" font-size="8" fill="#64748b" font-weight="700">LIVE TRANSACTION SPEED (JDBC POOL)</text>
+  <text x="320" y="168" font-family="monospace" font-size="8.5" fill="#14b8a6" font-weight="700">AVG: 12ms</text>
+  
+  <!-- Chart Line track -->
+  <path d="M 36,194 L 80,188 L 120,192 L 160,174 L 200,184 L 240,166 L 280,188 L 320,182 L 364,188" fill="none" stroke="#1e293b" stroke-width="2" />
+  <path d="M 36,194 L 80,188 L 120,192 L 160,174 L 200,184 L 240,166 L 280,188 L 320,182 L 364,188" fill="none" stroke="#14b8a6" stroke-width="1.5" filter="url(#glow-filter)" />
+  
+  <!-- Glowing chart peaks -->
+  <circle cx="240" cy="166" r="3.5" fill="#38bdf8" />
+  <circle cx="160" cy="174" r="3" fill="#14b8a6" />
+</svg>
