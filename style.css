@@ -200,6 +200,22 @@ body {
    GLASSMORPHISM UTILITIES
    ========================================================================== */
 
+/* Breathing Cybernetic Border Glow Animation */
+@keyframes borderGlowPulse {
+  0% {
+    border-color: var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    border-color: var(--glass-border-glow);
+    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.18);
+  }
+  100% {
+    border-color: var(--glass-border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
 .glass-card {
   background: var(--bg-card);
   backdrop-filter: blur(16px) saturate(130%);
@@ -209,6 +225,7 @@ body {
   position: relative;
   overflow: hidden;
   transition: var(--transition-smooth);
+  animation: borderGlowPulse 8s infinite alternate ease-in-out;
 }
 
 .glass-card::before {
@@ -234,14 +251,48 @@ body {
 
 .glass-card:hover {
   border-color: var(--glass-border-glow);
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.2);
+  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.35);
   transform: translateY(-4px);
+  animation-play-state: paused; /* Pause slow breathing pulse on direct interactive hover */
 }
 
-/* Dynamic 3D Card Tilt Container */
+/* Dynamic 3D Card Tilt Container & Internal Parallax Layers */
 .tilt-card {
   transform-style: preserve-3d;
   perspective: 1000px;
+}
+
+.tilt-card > * {
+  transform: translateZ(0px);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 3D Depth popping for interactive card elements on hover */
+@media (min-width: 1025px) {
+  .glass-card:hover .about-card-icon,
+  .glass-card:hover .project-screen-mockup,
+  .glass-card:hover .bento-icon,
+  .glass-card:hover .about-card h3,
+  .glass-card:hover .project-title,
+  .glass-card:hover .timeline-header,
+  .glass-card:hover .skill-card-header {
+    transform: translateZ(45px) scale(1.02);
+  }
+
+  .glass-card:hover p,
+  .glass-card:hover .highlights-list,
+  .glass-card:hover .timeline-bullets,
+  .glass-card:hover .project-summary-text,
+  .glass-card:hover .skills-list-wrapper {
+    transform: translateZ(25px);
+  }
+  
+  .glass-card:hover .about-card-footer,
+  .glass-card:hover .project-tech-badges,
+  .glass-card:hover .project-links,
+  .glass-card:hover .timeline-tags {
+    transform: translateZ(15px);
+  }
 }
 
 /* Glowing Border Glares inside cards */
@@ -527,9 +578,9 @@ body {
 .hero-section {
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.05fr 0.95fr; /* Rebalanced column ratios to prevent visual card compression */
   align-items: center;
-  gap: 40px;
+  gap: 60px; /* Comfortably widened columns gap */
   padding-top: 120px;
   position: relative;
 }
@@ -585,7 +636,7 @@ body {
 .name-gradient {
   display: block;
   font-family: var(--font-header);
-  font-size: 72px;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
   background: linear-gradient(to right, #fff 20%, #a5b4fc 50%, var(--primary) 100%);
@@ -597,7 +648,7 @@ body {
 
 .hero-subtitle {
   font-family: var(--font-header);
-  font-size: 32px;
+  font-size: clamp(1.3rem, 4.5vw, 2rem);
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 24px;
@@ -647,8 +698,8 @@ body {
 
 .hero-glass-card {
   width: 100%;
-  max-width: 440px;
-  aspect-ratio: 16/13;
+  max-width: 500px; /* Spacious width to support single-line code items without horizontal scrolling */
+  aspect-ratio: 16/12;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 50px rgba(99, 102, 241, 0.05);
 }
 
@@ -680,11 +731,11 @@ body {
 }
 
 .card-body-code {
-  padding: 20px;
+  padding: 24px; /* Spacious internal padding */
   font-family: 'Courier New', Courier, monospace;
-  font-size: 13.5px;
-  line-height: 1.5;
-  overflow: auto;
+  font-size: 14.5px; /* Premium readibility font size */
+  line-height: 1.6;
+  overflow: hidden; /* Prevents scrollbars on desktop viewports */
 }
 
 .code-keyword { color: #f43f5e; font-weight: bold; }
@@ -719,7 +770,7 @@ section {
 
 .section-heading {
   font-family: var(--font-header);
-  font-size: 38px;
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
   font-weight: 700;
   letter-spacing: -0.5px;
   color: var(--text-primary);
@@ -1572,9 +1623,25 @@ section {
   color: var(--accent);
   background: rgba(20, 184, 166, 0.08);
   border: 1px solid rgba(20, 184, 166, 0.2);
-  padding: 1px 6px;
-  border-radius: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
   font-family: monospace;
+  cursor: pointer;
+  display: inline-block;
+  margin: 2px;
+  transition: var(--transition-fast);
+  user-select: none;
+}
+
+.terminal-command-hint:hover {
+  background: rgba(20, 184, 166, 0.18);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.terminal-command-hint:active {
+  transform: translateY(1px);
 }
 
 .terminal-container-block {
@@ -2011,7 +2078,7 @@ section {
     grid-template-columns: 1fr;
     text-align: center;
     padding-top: 140px;
-    gap: 60px;
+    gap: 40px;
   }
   
   .hero-content {
@@ -2028,7 +2095,16 @@ section {
   }
   
   .hero-visual {
-    order: -1;
+    order: 1; /* Visual cards display below the headline for standard, premium flow */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-glass-card {
+    aspect-ratio: auto; /* Dynamic height scaling prevents code content from being clipped on mobile */
+    max-width: 440px;
+    margin: 20px auto 0 auto;
   }
   
   .about-grid {
@@ -2051,15 +2127,30 @@ section {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
+  .project-image-slot {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .project-screen-mockup {
+    width: 100%;
+    max-width: 480px; /* Centered mockup bounds */
+  }
   
   .timeline-center-line {
     left: 20px;
   }
   
   .timeline-item {
-    width: 100%;
+    width: 100% !important;
     padding-left: 50px;
     padding-right: 0;
+  }
+
+  .left-item, .right-item {
+    left: 0 !important; /* CRITICAL: Resets desktop 50% left displacement to prevent timeline overlap clipping */
     text-align: left !important;
   }
   
@@ -2068,27 +2159,18 @@ section {
     left: 12px;
   }
   
-  .left-item .timeline-tags {
-    justify-content: flex-start;
+  .left-item .timeline-tags,
+  .right-item .timeline-tags {
+    justify-content: flex-start !important;
   }
 }
 
 @media (max-width: 768px) {
   .content-wrapper {
-    padding: 0 20px;
+    padding: 0 16px; /* Optimized wrapper padding for compact screens */
   }
   
-  .section-heading {
-    font-size: 30px;
-  }
-  
-  .name-gradient {
-    font-size: 52px;
-  }
-  
-  .hero-subtitle {
-    font-size: 24px;
-  }
+  /* Suppressed absolute typography overrides to allow fluid CSS clamp() scaling to flow natively */
   
   .glass-header {
     width: 95%;
@@ -2112,6 +2194,54 @@ section {
   }
   .mobile-nav-toggle.open .bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* Centering project cards and layouts on mobile screens */
+  .project-card {
+    padding: 24px 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .project-bullet-features {
+    text-align: left; /* Bullets left-aligned for readibility, but list block is centered */
+    margin: 0 auto 24px auto;
+  }
+
+  .project-tech-badges {
+    justify-content: center;
+  }
+
+  .project-links {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  /* Adjust single-column timeline alignments on small devices to prevent squishing */
+  .timeline-center-line {
+    left: 16px !important;
+  }
+  
+  .timeline-item {
+    padding-left: 36px !important;
+    margin-bottom: 40px;
+  }
+  
+  .left-item .timeline-dot-glower,
+  .right-item .timeline-dot-glower {
+    left: 8px !important;
+    top: 24px;
   }
   
   .bento-grid {
@@ -2138,5 +2268,198 @@ section {
   
   .browser-body {
     height: 180px;
+  }
+  
+  .card-body-code {
+    padding: 16px;
+    font-size: 11.5px !important;
+    line-height: 1.4;
+    overflow-x: auto; /* Enable touch horizontal scroll for long properties on ultra-narrow screens */
+  }
+}
+
+/* ==========================================================================
+   CYBER DOCK, TOUCH ENHANCEMENTS & MOBILE REFINEMENTS
+   ========================================================================== */
+
+/* Cyber Bottom Dock (Mobile Only) */
+.cyber-bottom-dock {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120px); /* Animated slide-in from bottom */
+  width: 92%;
+  max-width: 400px;
+  background: rgba(8, 12, 22, 0.7);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 8px 12px;
+  display: none; /* Hidden on desktop */
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.7),
+              0 0 20px rgba(99, 102, 241, 0.08),
+              inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+}
+
+.cyber-bottom-dock.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.cyber-bottom-dock:hover {
+  border-color: var(--glass-border-glow);
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  position: relative;
+  overflow: visible;
+  outline: none;
+  user-select: none;
+}
+
+.dock-item svg {
+  color: var(--text-secondary);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.3s;
+}
+
+.dock-item:hover svg,
+.dock-item.active svg {
+  color: var(--accent);
+  transform: scale(1.15) translateY(-2px);
+}
+
+.dock-item:hover,
+.dock-item.active {
+  color: var(--text-primary);
+}
+
+.dock-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 4px;
+  height: 4px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: var(--transition-fast);
+}
+
+.dock-item.active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hack Button Specific Action Style */
+.dock-hack-btn {
+  color: var(--yellow);
+}
+
+.dock-hack-btn svg {
+  color: var(--yellow);
+}
+
+.dock-hack-btn:hover svg,
+.dock-hack-btn.active svg {
+  color: #f43f5e;
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.7));
+}
+
+.dock-hack-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.18) 0%, rgba(0,0,0,0) 75%);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Active mobile transitions & card spacing adjustments */
+@media (max-width: 1024px) {
+  .cyber-bottom-dock {
+    display: flex;
+  }
+  
+  body {
+    padding-bottom: 90px; /* Allocate bottom space to avoid content clipping */
+  }
+
+  .custom-cursor-dot,
+  .custom-cursor-outline {
+    display: none !important; /* Hide desktops cursor outline on touch viewports */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Extra mobile padding reductions for cards to avoid squishing */
+  .project-card {
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+  
+  .about-card {
+    padding: 24px 20px;
+  }
+  
+  .skill-category-card {
+    padding: 24px 16px;
+  }
+  
+  .bento-card {
+    padding: 24px 20px;
+  }
+  
+  /* Interactive terminal responsiveness fixes */
+  .terminal-container-block {
+    border-radius: 8px;
+  }
+  
+  .terminal-topbar {
+    padding: 8px 12px;
+  }
+  
+  .terminal-right-indicators {
+    display: none; /* Hide network latency to save horizontal space */
+  }
+  
+  .terminal-console-body {
+    padding: 12px;
+    font-size: 12px !important;
+  }
+  
+  .terminal-input-row {
+    font-size: 12px;
+  }
+  
+  .terminal-prompt {
+    font-size: 11px;
+  }
+  
+  #terminal-cmd-input {
+    font-size: 12px;
   }
 }

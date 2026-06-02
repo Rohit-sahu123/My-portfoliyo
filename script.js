@@ -95,6 +95,26 @@ document.addEventListener('DOMContentLoaded', () => {
     canvasMouse.x = null;
     canvasMouse.y = null;
   });
+
+  // Touch tracking to support interactive mobile constellations
+  window.addEventListener('touchstart', (e) => {
+    if (e.touches.length > 0) {
+      canvasMouse.x = e.touches[0].clientX;
+      canvasMouse.y = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (e.touches.length > 0) {
+      canvasMouse.x = e.touches[0].clientX;
+      canvasMouse.y = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  window.addEventListener('touchend', () => {
+    canvasMouse.x = null;
+    canvasMouse.y = null;
+  });
   
   // Particle Class
   class Particle {
@@ -105,11 +125,13 @@ document.addEventListener('DOMContentLoaded', () => {
       this.vy = (Math.random() - 0.5) * 0.6;
       this.radius = Math.random() * 2 + 1.2;
       this.color = Math.random() > 0.5 ? 'rgba(99, 102, 241, 0.4)' : 'rgba(20, 184, 166, 0.4)';
+      this.renderedX = this.x;
+      this.renderedY = this.y;
     }
     
-    draw() {
+    draw(renderedY) {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.arc(this.x, renderedY, this.radius, 0, Math.PI * 2);
       ctx.fillStyle = this.color;
       ctx.fill();
     }
@@ -122,21 +144,30 @@ document.addEventListener('DOMContentLoaded', () => {
       this.x += this.vx;
       this.y += this.vy;
       
-      // Mouse interaction
+      // Mouse/Touch interaction
       if (canvasMouse.x != null && canvasMouse.y != null) {
         let dx = this.x - canvasMouse.x;
         let dy = this.y - canvasMouse.y;
         let dist = Math.sqrt(dx * dx + dy * dy);
         
         if (dist < canvasMouse.radius) {
-          // Push particles slightly away or pull them
           const force = (canvasMouse.radius - dist) / canvasMouse.radius;
           this.x += (dx / dist) * force * 1.5;
           this.y += (dy / dist) * force * 1.5;
         }
       }
       
-      this.draw();
+      // 3D Parallax Scroll-depth displacement
+      const scrollFactor = this.radius * 0.08; // Foreground stars drift faster, background slower
+      const displacedY = this.y - (window.scrollY * scrollFactor);
+      
+      let renderedY = displacedY % canvas.height;
+      if (renderedY < 0) renderedY += canvas.height;
+      
+      this.renderedX = this.x;
+      this.renderedY = renderedY;
+      
+      this.draw(renderedY);
     }
   }
   
@@ -149,20 +180,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   initParticles();
   
-  // Draw connecting line threads
+  // Draw connecting line threads matching parallax rendered offsets
   function connectParticles() {
     for (let a = 0; a < particlesArray.length; a++) {
       for (let b = a + 1; b < particlesArray.length; b++) {
-        let dx = particlesArray[a].x - particlesArray[b].x;
-        let dy = particlesArray[a].y - particlesArray[b].y;
+        let dx = particlesArray[a].renderedX - particlesArray[b].renderedX;
+        let dy = particlesArray[a].renderedY - particlesArray[b].renderedY;
         let dist = Math.sqrt(dx * dx + dy * dy);
         
         if (dist < connectionDistance) {
-          // Opacity based on distance
           const opacity = (connectionDistance - dist) / connectionDistance * 0.12;
           ctx.beginPath();
-          ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-          ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+          ctx.moveTo(particlesArray[a].renderedX, particlesArray[a].renderedY);
+          ctx.lineTo(particlesArray[b].renderedX, particlesArray[b].renderedY);
           ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`;
           ctx.lineWidth = 0.8;
           ctx.stroke();
@@ -192,28 +222,31 @@ document.addEventListener('DOMContentLoaded', () => {
   tiltCards.forEach(card => {
     const glow = card.querySelector('.card-glow-element');
     
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left; // x position inside the card
-      const y = e.clientY - rect.top;  // y position inside the card
+    // Only register mouse moves on non-touch viewports to avoid scroll lags
+    if (window.innerWidth > 1024) {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position inside the card
+        const y = e.clientY - rect.top;  // y position inside the card
+        
+        // Calculate rotation ranges (-10 to 10 degrees)
+        const rotateX = -((y - rect.height / 2) / (rect.height / 2)) * 10;
+        const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 10;
+        
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        
+        // Move internal light reflection bubble
+        if (glow) {
+          glow.style.left = `${x}px`;
+          glow.style.top = `${y}px`;
+        }
+      });
       
-      // Calculate rotation ranges (-10 to 10 degrees)
-      const rotateX = -((y - rect.height / 2) / (rect.height / 2)) * 10;
-      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 10;
-      
-      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      
-      // Move internal light reflection bubble
-      if (glow) {
-        glow.style.left = `${x}px`;
-        glow.style.top = `${y}px`;
-      }
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      // Smoothly restore defaults
-      card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
-    });
+      card.addEventListener('mouseleave', () => {
+        // Smoothly restore defaults
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) translateY(0px)';
+      });
+    }
   });
 
   // ==========================================================================
@@ -632,4 +665,175 @@ Type <span class="text-cyan font-bold">project campusevent</span> or <span class
       
     }, 1800);
   };
+
+  // ==========================================================================
+  // 11. CLICKABLE CLI COMMAND BADGES (TOUCH-FRIENDLY UTILITY)
+  // ==========================================================================
+  window.executeCLICommand = function(cmdText) {
+    if (!terminalInput) return;
+    
+    terminalInput.value = cmdText;
+    
+    // Create and dispatch an Enter keydown event to execute in terminalRegistry
+    const enterEvent = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      keyCode: 13,
+      bubbles: true
+    });
+    terminalInput.dispatchEvent(enterEvent);
+  };
+  
+  // Bind click listeners to all hint elements
+  const commandBadges = document.querySelectorAll('.terminal-command-hint');
+  commandBadges.forEach(badge => {
+    badge.addEventListener('click', (e) => {
+      e.preventDefault();
+      const cmd = badge.textContent.trim().toLowerCase();
+      
+      const terminalSection = document.getElementById('terminal');
+      if (terminalSection) {
+        terminalSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      
+      // Execute command with a subtle delay for smooth scroll visual finish
+      setTimeout(() => {
+        executeCLICommand(cmd);
+        terminalInput.focus();
+      }, 350);
+    });
+  });
+
+  // ==========================================================================
+  // 12. GYROSCOPE-BASED 3D CARD TILT (MOBILE ORIENTATION ENHANCEMENT)
+  // ==========================================================================
+  function handleOrientation(event) {
+    const gamma = event.gamma; // Left-to-right tilt (-90 to 90 degrees)
+    const beta = event.beta;   // Front-to-back tilt (-180 to 180 degrees)
+    
+    if (gamma === null || beta === null) return;
+    
+    // Normalize tilt rotations to a reasonable angle range (-10 to 10 degrees)
+    // Holding the phone normally is roughly at a 50-degree beta angle.
+    const rotationX = Math.max(-10, Math.min(10, (beta - 50) * 0.4));
+    const rotationY = Math.max(-10, Math.min(10, gamma * 0.4));
+    
+    tiltCards.forEach(card => {
+      card.style.transform = `rotateX(${-rotationX}deg) rotateY(${rotationY}deg) translateY(-2px)`;
+    });
+  }
+
+  // Safely check device orientation permissions
+  if (window.innerWidth <= 1024) {
+    if (window.DeviceOrientationEvent) {
+      if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+        document.addEventListener('click', function requestOrientationPerms() {
+          DeviceOrientationEvent.requestPermission()
+            .then(state => {
+              if (state === 'granted') {
+                window.addEventListener('deviceorientation', handleOrientation);
+              }
+            })
+            .catch(err => console.log('Gyroscope access rejected:', err));
+          document.removeEventListener('click', requestOrientationPerms);
+        }, { once: true });
+      } else {
+        window.addEventListener('deviceorientation', handleOrientation);
+      }
+    }
+  }
+
+  // ==========================================================================
+  // 13. CYBER BOTTOM DOCK NAV CONTROLS
+  // ==========================================================================
+  const bottomDock = document.querySelector('.cyber-bottom-dock');
+  const dockItems = document.querySelectorAll('.cyber-bottom-dock .dock-item:not(.dock-hack-btn)');
+  const dockHackTrigger = document.getElementById('dock-hack-trigger');
+
+  if (bottomDock) {
+    // Show/hide floating bottom dock on vertical scroll threshold
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 250) {
+        bottomDock.classList.add('visible');
+      } else {
+        bottomDock.classList.remove('visible');
+      }
+    });
+
+    // Highlight current active section dock link icon
+    window.addEventListener('scroll', () => {
+      let activeSec = 'hero';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 250;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          activeSec = section.getAttribute('id');
+        }
+      });
+
+      dockItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('data-sec') === activeSec) {
+          item.classList.add('active');
+        }
+      });
+    });
+
+    // Hack trigger auto CLI matrix command run
+    if (dockHackTrigger) {
+      dockHackTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const terminalSection = document.getElementById('terminal');
+        if (terminalSection) {
+          terminalSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        setTimeout(() => {
+          window.executeCLICommand('hack');
+        }, 500);
+        
+        // Haptic active flash indicator
+        dockHackTrigger.classList.add('active');
+        setTimeout(() => {
+          dockHackTrigger.classList.remove('active');
+        }, 1500);
+      });
+    }
+  }
+
+  // ==========================================================================
+  // 14. 2D MAGNETIC CTA PHYSICS ENGINE (HIGH-END DESKTOP PHYSICS DETAIL)
+  // ==========================================================================
+  const magneticButtons = document.querySelectorAll('.magnetic-btn');
+  
+  if (window.innerWidth > 1024) { // Active only on desktop viewports to prevent layout jumps on tap
+    magneticButtons.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        // Dynamic attraction interpolation: 30% strength
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        btn.style.boxShadow = `0 10px 25px rgba(99, 102, 241, 0.3), ${-x * 0.1}px ${-y * 0.1}px 15px rgba(99, 102, 241, 0.15)`;
+        
+        // Inner text elements drag slightly less (15% strength) to establish a layered 3D depth feel
+        const btnText = btn.querySelector('span');
+        if (btnText) {
+          btnText.style.transform = `translate(${x * 0.12}px, ${y * 0.12}px)`;
+        }
+      });
+      
+      btn.addEventListener('mouseleave', () => {
+        // Smoothly snap back on hover leave
+        btn.style.transform = 'translate(0px, 0px)';
+        btn.style.boxShadow = '';
+        
+        const btnText = btn.querySelector('span');
+        if (btnText) {
+          btnText.style.transform = 'translate(0px, 0px)';
+        }
+      });
+    });
+  }
 });

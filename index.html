@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rohit Sahu | Premium Full-Stack & Frontend Developer Portfolio</title>
-  <meta name="description" content="Portfolio of Rohit Sahu, a Software & Frontend Developer specializing in Angular, Java, Spring Boot, and modern premium UI/UX design. Explore interactive projects, timeline, and dynamic terminal.">
-  
+  <meta name="description"
+    content="Portfolio of Rohit Sahu, a Software & Frontend Developer specializing in Angular, Java, Spring Boot, and modern premium UI/UX design. Explore interactive projects, timeline, and dynamic terminal.">
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <!-- Core Stylesheet -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <!-- HTML5 Canvas for Interactive Particle Constellation Background -->
   <canvas id="particle-canvas"></canvas>
-  
+
   <!-- Ambient glowing aura graphics -->
   <div class="glow-orb orb-1"></div>
   <div class="glow-orb orb-2"></div>
@@ -34,7 +39,7 @@
       <a href="#hero" class="nav-logo">
         <span class="logo-tag">&lt;</span>RS<span class="logo-tag"> /&gt;</span>
       </a>
-      
+
       <nav class="nav-links">
         <a href="#hero" class="nav-link active" data-sec="hero">Home</a>
         <a href="#objective" class="nav-link" data-sec="objective">About</a>
@@ -44,7 +49,8 @@
         <a href="#education" class="nav-link" data-sec="education">Education</a>
         <a href="#terminal" class="nav-link nav-terminal-btn" data-sec="terminal">
           <svg class="nav-terminal-icon" viewBox="0 0 24 24" width="16" height="16">
-            <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12H7v-2h5v2zm3-4l-3-3h3l3 3-3 3h-3l3-3z"/>
+            <path fill="currentColor"
+              d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12H7v-2h5v2zm3-4l-3-3h3l3 3-3 3h-3l3-3z" />
           </svg>
           Terminal
         </a>
@@ -82,36 +88,40 @@
         <div class="hero-badge animate-fade-in">
           <span class="badge-dot"></span> Available for SDE Internships / Entry-Level Roles
         </div>
-        
+
         <h1 class="hero-title animate-title">
           <span class="greeting">Hi, my name is</span>
           <span class="name-gradient">Rohit Sahu</span>
         </h1>
-        
+
         <h2 class="hero-subtitle">
           I build <span class="typing-text" id="role-text"></span><span class="cursor-blink">|</span>
         </h2>
-        
+
         <p class="hero-lead-text">
-          A dynamic Software & Frontend Developer specializing in creating seamless user interfaces with <span class="tech-highlight">Angular</span> and highly scalable backends using <span class="tech-highlight">Java & Spring Boot</span>. Focused on responsive architectures, RESTful APIs, and pixel-perfect design systems.
+          A dynamic Software & Frontend Developer specializing in creating seamless user interfaces with <span
+            class="tech-highlight">Angular</span> and highly scalable backends using <span class="tech-highlight">Java &
+            Spring Boot</span>. Focused on responsive architectures, RESTful APIs, and pixel-perfect design systems.
         </p>
 
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary magnetic-btn">
             <span>Explore Work</span>
             <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18">
-              <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/>
+              <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
           <a href="#terminal" class="btn btn-secondary magnetic-btn">
             <svg class="btn-icon" viewBox="0 0 24 24" width="18" height="18">
-              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+              <path fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
             </svg>
             <span>Interactive CLI</span>
           </a>
         </div>
       </div>
-      
+
       <!-- Hero Floating Stat Card -->
       <div class="hero-visual animate-slide-up">
         <div class="glass-card hero-glass-card tilt-card">
@@ -149,18 +159,22 @@
         <h2 class="section-heading">Career Vision & Objective</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="about-grid">
         <div class="about-card glass-card tilt-card">
           <div class="card-glow-element"></div>
           <div class="about-card-icon">
             <svg viewBox="0 0 24 24" width="40" height="40" class="neon-svg">
-              <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+              <path fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" />
             </svg>
           </div>
           <h3>The Core Objective</h3>
           <p>
-            Aspiring UI/UX and Full-Stack Developer with deep practical expertise in <strong>Angular</strong> and <strong>Spring Boot</strong>. I focus on bridging the gap between sophisticated backends and beautiful, intuitive frontend interfaces. I seek to apply my design thinking and software engineering principles in a growth-oriented entry-level role, delivering seamless digital experiences.
+            Aspiring UI/UX and Full-Stack Developer with deep practical expertise in <strong>Angular</strong> and
+            <strong>Spring Boot</strong>. I focus on bridging the gap between sophisticated backends and beautiful,
+            intuitive frontend interfaces. I seek to apply my design thinking and software engineering principles in a
+            growth-oriented entry-level role, delivering seamless digital experiences.
           </p>
           <div class="about-card-footer">
             <div class="stat-item">
@@ -178,22 +192,29 @@
           <div class="card-glow-element"></div>
           <div class="about-card-icon">
             <svg viewBox="0 0 24 24" width="40" height="40" class="neon-svg-cyan">
-              <path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-8h-2v4h3v-2h-1v-2zm-1-5c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3h2c0-2.76-2.24-5-5-5z"/>
+              <path fill="currentColor"
+                d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm1-8h-2v4h3v-2h-1v-2zm-1-5c-2.76 0-5 2.24-5 5h2c0-1.66 1.34-3 3-3s3 1.34 3 3h2c0-2.76-2.24-5-5-5z" />
             </svg>
           </div>
           <h3>Why I'm Unique</h3>
           <p>
-            Unlike traditional software developers, I don't just focus on standard REST endpoints. I care deeply about how animations feel, how data loads, and the exact alignment of micro-interactions. By combining structural Java architectures with high-fidelity visual frontends, I design systems that look premium and perform flawlessly.
+            Unlike traditional software developers, I don't just focus on standard REST endpoints. I care deeply about
+            how animations feel, how data loads, and the exact alignment of micro-interactions. By combining structural
+            Java architectures with high-fidelity visual frontends, I design systems that look premium and perform
+            flawlessly.
           </p>
           <ul class="highlights-list">
             <li>
-              <span class="highlight-check">✓</span> <strong>Dual-Sided Skills</strong>: Strong core Java background + creative Angular styling.
+              <span class="highlight-check">✓</span> <strong>Dual-Sided Skills</strong>: Strong core Java background +
+              creative Angular styling.
             </li>
             <li>
-              <span class="highlight-check">✓</span> <strong>Clean Layouts</strong>: Driven by a passion for premium visual execution (glassmorphism, clean layouts).
+              <span class="highlight-check">✓</span> <strong>Clean Layouts</strong>: Driven by a passion for premium
+              visual execution (glassmorphism, clean layouts).
             </li>
             <li>
-              <span class="highlight-check">✓</span> <strong>Modern Workflow</strong>: Proficient in GitHub collaborations, automated environments, and API post-processing.
+              <span class="highlight-check">✓</span> <strong>Modern Workflow</strong>: Proficient in GitHub
+              collaborations, automated environments, and API post-processing.
             </li>
           </ul>
         </div>
@@ -207,7 +228,7 @@
         <h2 class="section-heading">Skills & Competency Orbit</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="skills-grid">
         <!-- FRONTEND -->
         <div class="skill-category-card glass-card tilt-card">
@@ -222,31 +243,39 @@
                 <span>Angular (Typescript)</span>
                 <span>85%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-purple" style="--percent: 85%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-purple" style="--percent: 85%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>HTML5 / Semantic Markup</span>
                 <span>90%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-purple" style="--percent: 90%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-purple" style="--percent: 90%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>Vanilla CSS3 / SCSS</span>
                 <span>88%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-purple" style="--percent: 88%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-purple" style="--percent: 88%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>ES6 JavaScript</span>
                 <span>82%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-purple" style="--percent: 82%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-purple" style="--percent: 82%;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -264,31 +293,39 @@
                 <span>Java Core & OOPs</span>
                 <span>80%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-cyan" style="--percent: 80%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-cyan" style="--percent: 80%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>Spring Boot Framework</span>
                 <span>75%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-cyan" style="--percent: 75%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-cyan" style="--percent: 75%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>RESTful APIs & CRUD</span>
                 <span>80%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-cyan" style="--percent: 80%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-cyan" style="--percent: 80%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>MVC Architecture</span>
                 <span>82%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-cyan" style="--percent: 82%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-cyan" style="--percent: 82%;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -306,23 +343,29 @@
                 <span>MySQL</span>
                 <span>80%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-pink" style="--percent: 80%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-pink" style="--percent: 80%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>JDBC (Java DB Connectivity)</span>
                 <span>78%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-pink" style="--percent: 78%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-pink" style="--percent: 78%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>Relational Databases & Joins</span>
                 <span>82%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-pink" style="--percent: 82%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-pink" style="--percent: 82%;"></div>
+              </div>
             </div>
           </div>
         </div>
@@ -340,28 +383,34 @@
                 <span>Git & GitHub (Version Control)</span>
                 <span>85%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-yellow" style="--percent: 85%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-yellow" style="--percent: 85%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>Postman (API Testing)</span>
                 <span>80%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-yellow" style="--percent: 80%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-yellow" style="--percent: 80%;"></div>
+              </div>
             </div>
-            
+
             <div class="skill-progress-item">
               <div class="skill-label-bar">
                 <span>VS Code & IntelliJ / Eclipse</span>
                 <span>90%</span>
               </div>
-              <div class="progress-bar-bg"><div class="progress-bar-fill fill-yellow" style="--percent: 90%;"></div></div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill fill-yellow" style="--percent: 90%;"></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <!-- Tech Badge Cloud -->
       <div class="tech-cloud-container glass-card">
         <span class="cloud-title">Quick Highlights:</span>
@@ -391,7 +440,7 @@
         <h2 class="section-heading">Professional Experience</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="timeline-container">
         <div class="timeline-center-line"></div>
 
@@ -406,13 +455,18 @@
               <h4 class="timeline-role">Angular Full-Stack Developer Trainee</h4>
             </div>
             <p class="timeline-desc">
-              Rigorous professional training focusing on full-stack web applications using enterprise standards and MVC architectures.
+              Rigorous professional training focusing on full-stack web applications using enterprise standards and MVC
+              architectures.
             </p>
             <ul class="timeline-bullets">
               <li>Completed intensive <strong>Angular Full-Stack Development</strong> training.</li>
-              <li>Engineered interactive frontends using <strong>Angular</strong> integrated with powerful <strong>Java Spring Boot</strong> API servers.</li>
-              <li>Implemented secure <strong>REST APIs</strong> and persistent relational systems utilizing <strong>MySQL</strong>.</li>
-              <li>Built and optimized multi-layered MVC structures, focusing on database indexing and structured request flows.</li>
+              <li>Engineered interactive frontends using <strong>Angular</strong> integrated with powerful <strong>Java
+                  Spring Boot</strong> API servers.</li>
+              <li>Implemented secure <strong>REST APIs</strong> and persistent relational systems utilizing
+                <strong>MySQL</strong>.
+              </li>
+              <li>Built and optimized multi-layered MVC structures, focusing on database indexing and structured request
+                flows.</li>
             </ul>
             <div class="timeline-tags">
               <span class="time-tag">Angular</span>
@@ -434,13 +488,17 @@
               <h4 class="timeline-role">Java Intern</h4>
             </div>
             <p class="timeline-desc">
-              Completed an AICTE-approved Tech Saksham Internship focused on structural backend logic, system components, and object-oriented development.
+              Completed an AICTE-approved Tech Saksham Internship focused on structural backend logic, system
+              components, and object-oriented development.
             </p>
             <ul class="timeline-bullets">
-              <li>Worked extensively on <strong>Core Java</strong> and applied robust <strong>OOPs (Object Oriented Programming)</strong> principles.</li>
+              <li>Worked extensively on <strong>Core Java</strong> and applied robust <strong>OOPs (Object Oriented
+                  Programming)</strong> principles.</li>
               <li>Designed logical backend controllers, processing mathematical logic and dynamic parameters.</li>
-              <li>Collaborated within simulated environments to improve system debug times and structure robust exceptions management.</li>
-              <li>Successfully delivered modular classes adhering strictly to architectural specs and clean-code mandates.</li>
+              <li>Collaborated within simulated environments to improve system debug times and structure robust
+                exceptions management.</li>
+              <li>Successfully delivered modular classes adhering strictly to architectural specs and clean-code
+                mandates.</li>
             </ul>
             <div class="timeline-tags">
               <span class="time-tag">Core Java</span>
@@ -460,7 +518,7 @@
         <h2 class="section-heading">Featured Projects</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="projects-grid">
         <!-- PROJECT 1: CampusEventHub -->
         <article class="project-card glass-card tilt-card" id="proj-campush">
@@ -480,27 +538,32 @@
                   <span class="visual-badge">Angular & Spring Boot</span>
                   <div class="visual-graphic">
                     <svg viewBox="0 0 200 100" class="svg-graphic">
-                      <rect x="20" y="20" width="160" height="60" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
-                      <circle cx="50" cy="50" r="15" fill="#312e81" stroke="#14b8a6" stroke-width="2"/>
-                      <path d="M75 40 h60 M75 50 h40 M75 60 h50" stroke="#f3f4f6" stroke-width="3" stroke-linecap="round"/>
-                      <path d="M145 35 l20 15-20 15" fill="none" stroke="#6366f1" stroke-width="2"/>
+                      <rect x="20" y="20" width="160" height="60" rx="6" fill="#1e1b4b" stroke="#6366f1"
+                        stroke-width="2" />
+                      <circle cx="50" cy="50" r="15" fill="#312e81" stroke="#14b8a6" stroke-width="2" />
+                      <path d="M75 40 h60 M75 50 h40 M75 60 h50" stroke="#f3f4f6" stroke-width="3"
+                        stroke-linecap="round" />
+                      <path d="M145 35 l20 15-20 15" fill="none" stroke="#6366f1" stroke-width="2" />
                     </svg>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div class="project-info">
             <span class="project-number">Featured Project</span>
             <h3 class="project-title">CampusEventHub</h3>
             <p class="project-summary-text">
-              An Inter-College Event Management Platform. Built user-friendly reactive dashboards for administrative control, student registry, role-based workflows, and digital tracking.
+              An Inter-College Event Management Platform. Built user-friendly reactive dashboards for administrative
+              control, student registry, role-based workflows, and digital tracking.
             </p>
-            
+
             <ul class="project-bullet-features">
-              <li>Built rich interfaces for event discovery, dashboard profiles, registration requests, and custom notifications.</li>
-              <li>Implemented secure role-based login workflows (Students, Admins, Super Admins) backed by **JWT Tokens**.</li>
+              <li>Built rich interfaces for event discovery, dashboard profiles, registration requests, and custom
+                notifications.</li>
+              <li>Implemented secure role-based login workflows (Students, Admins, Super Admins) backed by **JWT
+                Tokens**.</li>
               <li>Added QR-based automatic attendance checks and admin instant-approval dashboards.</li>
               <li>Developed reactive ratings and real-time event analytics using modular REST APIs.</li>
             </ul>
@@ -514,12 +577,20 @@
             </div>
 
             <div class="project-links">
-              <a href="https://campush-event-hub.netlify.app" target="_blank" rel="noopener noreferrer" class="proj-link btn-glow">
+              <a href="https://campush-event-hub.netlify.app" target="_blank" rel="noopener noreferrer"
+                class="proj-link btn-glow">
                 <span>Visit Live Demo</span>
-                <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path fill="none" stroke="currentColor" stroke-width="2"
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3" />
+                </svg>
               </a>
-              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer" class="proj-link icon-only" title="View Source on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer"
+                class="proj-link icon-only" title="View Source on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -537,31 +608,37 @@
                 <span class="mock-url">college-management-backend</span>
               </div>
               <div class="browser-body img-college">
-                <img src="assets/college_management.svg" alt="College Management System Mockup" class="project-mockup-img">
+                <img src="assets/college_management.svg" alt="College Management System Mockup"
+                  class="project-mockup-img">
                 <div class="project-overlay-visual">
                   <span class="visual-badge cyan">Java & Spring Boot Core</span>
                   <div class="visual-graphic">
                     <svg viewBox="0 0 200 100" class="svg-graphic">
-                      <rect x="40" y="15" width="120" height="70" rx="4" fill="#0f172a" stroke="#14b8a6" stroke-width="2"/>
-                      <path d="M60 35 h80 M60 45 h60 M60 55 h70 M60 65 h50" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-                      <rect x="110" y="55" width="40" height="20" rx="3" fill="#115e59" stroke="#14b8a6" stroke-width="1"/>
+                      <rect x="40" y="15" width="120" height="70" rx="4" fill="#0f172a" stroke="#14b8a6"
+                        stroke-width="2" />
+                      <path d="M60 35 h80 M60 45 h60 M60 55 h70 M60 65 h50" stroke="#94a3b8" stroke-width="2"
+                        stroke-linecap="round" />
+                      <rect x="110" y="55" width="40" height="20" rx="3" fill="#115e59" stroke="#14b8a6"
+                        stroke-width="1" />
                     </svg>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div class="project-info">
             <span class="project-number">Full-Stack Backend Project</span>
             <h3 class="project-title">Online College Management System</h3>
             <p class="project-summary-text">
-              A scalable, role-based backend web application for tracking student modules, faculty parameters, administrative operational loads, and department metrics.
+              A scalable, role-based backend web application for tracking student modules, faculty parameters,
+              administrative operational loads, and department metrics.
             </p>
-            
+
             <ul class="project-bullet-features">
               <li>Designed modular database relational architecture with dynamic, secure queries.</li>
-              <li>Engineered roles authorization configurations (Admin, Teacher, Student) using modular session managers.</li>
+              <li>Engineered roles authorization configurations (Admin, Teacher, Student) using modular session
+                managers.</li>
               <li>Structured CRUD workflows, indexing query variables to dramatically speed up table joins.</li>
               <li>Utilized robust **JDBC** connection controllers and modular transactional models in Java.</li>
             </ul>
@@ -578,8 +655,12 @@
               <span class="proj-link disabled-link">
                 <span>Backend Core (API Only)</span>
               </span>
-              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer" class="proj-link icon-only" title="View Source on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer"
+                class="proj-link icon-only" title="View Source on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -602,23 +683,27 @@
                   <span class="visual-badge purple">Angular Responsive UI</span>
                   <div class="visual-graphic">
                     <svg viewBox="0 0 200 100" class="svg-graphic">
-                      <rect x="30" y="20" width="140" height="60" rx="3" fill="#581c87" stroke="#a855f7" stroke-width="2"/>
-                      <rect x="40" y="30" width="30" height="40" rx="2" fill="#701a75" stroke="#f0abfc" stroke-width="1"/>
-                      <path d="M80 35 h80 M80 45 h60 M80 55 h50" stroke="#f3f4f6" stroke-width="2" stroke-linecap="round"/>
+                      <rect x="30" y="20" width="140" height="60" rx="3" fill="#581c87" stroke="#a855f7"
+                        stroke-width="2" />
+                      <rect x="40" y="30" width="30" height="40" rx="2" fill="#701a75" stroke="#f0abfc"
+                        stroke-width="1" />
+                      <path d="M80 35 h80 M80 45 h60 M80 55 h50" stroke="#f3f4f6" stroke-width="2"
+                        stroke-linecap="round" />
                     </svg>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          
+
           <div class="project-info">
             <span class="project-number">Frontend UI Project</span>
             <h3 class="project-title">Score More Academy</h3>
             <p class="project-summary-text">
-              A modern, visual landing portal and administration interface built for educational institutions to list courses, publish academic achievements, and collect queries.
+              A modern, visual landing portal and administration interface built for educational institutions to list
+              courses, publish academic achievements, and collect queries.
             </p>
-            
+
             <ul class="project-bullet-features">
               <li>Designed highly responsive and dynamic views for mobile, tablet, and widescreen layouts.</li>
               <li>Engineered interactive course catalogs, achievement dashboards, and student query cards.</li>
@@ -635,12 +720,20 @@
             </div>
 
             <div class="project-links">
-              <a href="https://score-more-academy.vercel.app/" target="_blank" rel="noopener noreferrer" class="proj-link btn-glow">
+              <a href="https://score-more-academy.vercel.app/" target="_blank" rel="noopener noreferrer"
+                class="proj-link btn-glow">
                 <span>Visit Live Demo</span>
-                <svg viewBox="0 0 24 24" width="16" height="16"><path fill="none" stroke="currentColor" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                  <path fill="none" stroke="currentColor" stroke-width="2"
+                    d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3" />
+                </svg>
               </a>
-              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer" class="proj-link icon-only" title="View Source on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+              <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer"
+                class="proj-link icon-only" title="View Source on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                  <path
+                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -655,13 +748,16 @@
         <h2 class="section-heading">Education & Certifications</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="bento-grid">
         <!-- BANSAL COLLEGE -->
         <div class="bento-card glass-card span-2 tilt-card">
           <div class="card-glow-element"></div>
           <div class="bento-icon">
-            <svg viewBox="0 0 24 24" width="30" height="30" class="glow-icon-indigo"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.03L12 15.58l6.51-3.55 2.18 1.19L12 18.25l-8.69-4.74 2.18-1.48z"/></svg>
+            <svg viewBox="0 0 24 24" width="30" height="30" class="glow-icon-indigo">
+              <path fill="currentColor"
+                d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5.49 12.03L12 15.58l6.51-3.55 2.18 1.19L12 18.25l-8.69-4.74 2.18-1.48z" />
+            </svg>
           </div>
           <div class="bento-content">
             <span class="bento-meta">2023 - 2027</span>
@@ -679,7 +775,10 @@
         <div class="bento-card glass-card tilt-card">
           <div class="card-glow-element"></div>
           <div class="bento-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" class="glow-icon-cyan"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" class="glow-icon-cyan">
+              <path fill="currentColor"
+                d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" />
+            </svg>
           </div>
           <div class="bento-content">
             <span class="bento-meta">2022 - 2023</span>
@@ -694,7 +793,10 @@
         <div class="bento-card glass-card tilt-card">
           <div class="card-glow-element"></div>
           <div class="bento-icon">
-            <svg viewBox="0 0 24 24" width="24" height="24" class="glow-icon-cyan"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+            <svg viewBox="0 0 24 24" width="24" height="24" class="glow-icon-cyan">
+              <path fill="currentColor"
+                d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.17 19.58 10.53 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9z" />
+            </svg>
           </div>
           <div class="bento-content">
             <span class="bento-meta">2019 - 2020</span>
@@ -709,12 +811,15 @@
         <div class="bento-card glass-card span-2 tilt-card">
           <div class="card-glow-element"></div>
           <div class="bento-icon">
-            <svg viewBox="0 0 24 24" width="30" height="30" class="glow-icon-pink"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+            <svg viewBox="0 0 24 24" width="30" height="30" class="glow-icon-pink">
+              <path fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+            </svg>
           </div>
           <div class="bento-content w-100">
             <span class="bento-meta">Verified Credentials</span>
             <h3>Professional Certifications</h3>
-            
+
             <div class="certs-list">
               <div class="cert-item">
                 <span class="cert-bullet">🛡️</span>
@@ -723,7 +828,7 @@
                   <span class="cert-provider">HackerRank Verified</span>
                 </div>
               </div>
-              
+
               <div class="cert-item">
                 <span class="cert-bullet">🛡️</span>
                 <div class="cert-details">
@@ -731,7 +836,7 @@
                   <span class="cert-provider">HackerRank Verified</span>
                 </div>
               </div>
-              
+
               <div class="cert-item">
                 <span class="cert-bullet">🛡️</span>
                 <div class="cert-details">
@@ -768,9 +873,12 @@
         <h2 class="section-heading">Rohit's Core Visual CLI</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <p class="terminal-instruction-text">
-        Type direct system commands below to inspect my credentials. Try <code class="terminal-command-hint">help</code>, <code class="terminal-command-hint">skills</code>, <code class="terminal-command-hint">projects</code>, <code class="terminal-command-hint">contact</code>, or the high-clearance <code class="terminal-command-hint">hack</code> override sequence!
+        Type direct system commands below to inspect my credentials. Try <code
+          class="terminal-command-hint">help</code>, <code class="terminal-command-hint">skills</code>, <code
+          class="terminal-command-hint">projects</code>, <code class="terminal-command-hint">contact</code>, or the
+        high-clearance <code class="terminal-command-hint">hack</code> override sequence!
       </p>
 
       <div class="terminal-container-block glass-card">
@@ -786,7 +894,7 @@
             <span class="session-protocol">SECURE // TLS 1.3</span>
           </div>
         </div>
-        
+
         <div class="terminal-console-body" id="terminal-body">
           <div class="terminal-output-line text-dim">
             Initializing secure session with node rohitsahu.dev [Bhopal, MP]...
@@ -797,14 +905,15 @@
           <div class="terminal-output-line">
             Type <span class="text-indigo font-bold">help</span> to view all available diagnostic commands.
           </div>
-          
+
           <!-- Terminal Lines inject here -->
           <div class="terminal-output-container" id="terminal-outputs"></div>
-          
+
           <!-- Command Input Row -->
           <div class="terminal-input-row">
             <span class="terminal-prompt">rohit_sahu@guest:~$</span>
-            <input type="text" id="terminal-cmd-input" autocomplete="off" spellcheck="false" aria-label="Terminal input font command">
+            <input type="text" id="terminal-cmd-input" autocomplete="off" spellcheck="false"
+              aria-label="Terminal input font command">
             <span class="terminal-caret"></span>
           </div>
         </div>
@@ -818,14 +927,18 @@
         <h2 class="section-heading">Connect With Me</h2>
         <div class="header-line"></div>
       </div>
-      
+
       <div class="contact-container">
         <!-- Direct Quick Info Cards -->
         <div class="contact-info-panel">
-          <div class="contact-option-card glass-card tilt-card" onclick="copyContact('iamrohit.jmd@gmail.com', 'Email Address')">
+          <div class="contact-option-card glass-card tilt-card"
+            onclick="copyContact('iamrohit.jmd@gmail.com', 'Email Address')">
             <div class="card-glow-element"></div>
             <div class="option-icon-glow">
-              <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor"
+                  d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
             </div>
             <div class="option-details">
               <h4>Direct Email</h4>
@@ -837,7 +950,10 @@
           <div class="contact-option-card glass-card tilt-card" onclick="copyContact('+917610492446', 'Phone Number')">
             <div class="card-glow-element"></div>
             <div class="option-icon-glow cyan">
-              <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor"
+                  d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+              </svg>
             </div>
             <div class="option-details">
               <h4>Contact Number</h4>
@@ -849,7 +965,10 @@
           <div class="contact-option-card glass-card tilt-card">
             <div class="card-glow-element"></div>
             <div class="option-icon-glow yellow">
-              <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+              <svg viewBox="0 0 24 24" width="26" height="26">
+                <path fill="currentColor"
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
             </div>
             <div class="option-details">
               <h4>Operating Base</h4>
@@ -857,17 +976,25 @@
               <span class="location-status">Willing to relocate/remote</span>
             </div>
           </div>
-          
+
           <div class="social-channels-bar">
-            <a href="https://www.linkedin.com/in/rohit-sahu-601a61293/" target="_blank" rel="noopener noreferrer" class="social-bubble glass-card" title="LinkedIn Profile">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            <a href="https://www.linkedin.com/in/rohit-sahu-601a61293/" target="_blank" rel="noopener noreferrer"
+              class="social-bubble glass-card" title="LinkedIn Profile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg>
             </a>
-            <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer" class="social-bubble glass-card" title="GitHub Profile">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            <a href="https://github.com/Rohit-sahu123?tab=repositories" target="_blank" rel="noopener noreferrer"
+              class="social-bubble glass-card" title="GitHub Profile">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path
+                  d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
+              </svg>
             </a>
           </div>
         </div>
-        
+
         <!-- Interactive Glass Email Form -->
         <div class="contact-form-panel glass-card">
           <h3>Send A Direct Message</h3>
@@ -882,12 +1009,12 @@
                 <label for="contact-email">Email Address</label>
               </div>
             </div>
-            
+
             <div class="form-group">
               <input type="text" id="contact-subject" required placeholder=" ">
               <label for="contact-subject">Topic / Subject</label>
             </div>
-            
+
             <div class="form-group">
               <textarea id="contact-message" required rows="5" placeholder=" "></textarea>
               <label for="contact-message">Write your message details...</label>
@@ -895,15 +1022,48 @@
 
             <button type="submit" class="btn btn-primary w-100 magnetic-btn">
               <span>Transmit Signal</span>
-              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2.5" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              <svg viewBox="0 0 24 24" width="18" height="18">
+                <path fill="none" stroke="currentColor" stroke-width="2.5" d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+              </svg>
             </button>
           </form>
-          
+
           <div class="form-response-message" id="form-response"></div>
         </div>
       </div>
     </section>
   </main>
+
+  <!-- Cyber Glass Bottom Dock (Mobile Only) -->
+  <div class="cyber-bottom-dock">
+    <a href="#hero" class="dock-item active" data-sec="hero" aria-label="Home">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+      </svg>
+      <span class="dock-label">Home</span>
+    </a>
+    <a href="#terminal" class="dock-item" data-sec="terminal" aria-label="Console">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path
+          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12H7v-2h5v2zm3-4l-3-3h3l3 3-3 3h-3l3-3z" />
+      </svg>
+      <span class="dock-label">Console</span>
+    </a>
+    <button class="dock-item dock-hack-btn" id="dock-hack-trigger" aria-label="Hack Sequence">
+      <div class="dock-hack-glow"></div>
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+        <path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V8h2v4z" />
+      </svg>
+      <span class="dock-label">Hack</span>
+    </button>
+    <a href="#contact" class="dock-item" data-sec="contact" aria-label="Contact">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path
+          d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+      </svg>
+      <span class="dock-label">Contact</span>
+    </a>
+  </div>
 
   <!-- Interactive Clipboard Toast -->
   <div class="toast-notification" id="clipboard-toast">
@@ -929,4 +1089,5 @@
   <!-- Core Javascript Logic -->
   <script src="script.js"></script>
 </body>
+
 </html>
